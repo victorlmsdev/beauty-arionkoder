@@ -4,7 +4,7 @@
 
 This project is a Minimal Viable Product (MVP) for a multi-tenant booking system built using **Next.js 14 App Router** and **TypeScript**. It focuses on delivering a high-performance, SEO-friendly landing page for existing beauty centers, fulfilling the core challenge requirements.
 
-[Beauty Arionkoder](victorlms.arionkoder.vercel.app)
+beauty-arionkoder.vercel.app
 
 -----
 
