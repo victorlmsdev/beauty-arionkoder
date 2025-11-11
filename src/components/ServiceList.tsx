@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { IService } from "@/types";
 import ServiceCard from "./ServiceCard";
+import BookingForm from "./BookingForm";
 
 interface ServiceListProps {
 	services: IService[];
@@ -35,7 +36,10 @@ export default function ServiceList({ services }: ServiceListProps) {
 						<h3 className="text-2xl font-bold mb-4 text-indigo-700">
 							Book Appointment for: {selectedService.name}
 						</h3>
-
+						<BookingForm
+							service={selectedService}
+							onClose={handleCloseBooking}
+						/>
 						<button
 							onClick={handleCloseBooking}
 							className="mt-4 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300"
