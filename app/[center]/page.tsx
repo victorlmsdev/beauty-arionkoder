@@ -54,7 +54,7 @@ export default async function CenterLandingPage({ params }: CenterPageProps) {
 		"@type": "LocalBusiness",
 		name: centerData.name,
 		description: centerData.description,
-		url: `https://victorlms.arionic.vercel.app/${centerData.slug}`,
+		url: `https://beauty-arionkoder.vercel.app/${centerData.slug}`,
 		hasOfferCatalog: {
 			"@type": "OfferCatalog",
 			itemListElement: centerData.services.map((service) => ({
