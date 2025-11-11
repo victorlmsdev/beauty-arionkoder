@@ -9,7 +9,7 @@ export default function ServiceCard({ service, onBook }: ServiceCardProps) {
 	const { name, duration, price, description } = service;
 
 	return (
-		<div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 flex flex-col justify-between">
+		<div className="bg-blue-50 p-6 rounded-lg shadow-xs  hover:shadow-xl transition duration-300 flex flex-col justify-between">
 			<div>
 				<h3 className="text-2xl font-semibold text-gray-900 mb-2">{name}</h3>
 				<p className="text-indigo-600 font-bold text-xl mb-3">
@@ -23,7 +23,7 @@ export default function ServiceCard({ service, onBook }: ServiceCardProps) {
 				</p>
 				<button
 					onClick={() => onBook(service)}
-					className="w-full bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition duration-150 shadow-md"
+					className="w-full bg-indigo-600 cursor-pointer text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition duration-150 shadow-md"
 				>
 					Book Now
 				</button>

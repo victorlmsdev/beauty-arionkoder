@@ -3,11 +3,34 @@ import { CenterPageProps } from "@/types";
 import CenterHeader from "@/components/CenterHeader";
 import ServiceList from "@/components/ServiceList";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+	params,
+}: {
+	params: { center: string };
+}): Promise<Metadata> {
+	const { center } = await params;
+
+	const centerData = await getCenterData(center);
+
+	return {
+		title: `${centerData.name} Services & Booking`,
+		description:
+			centerData.description.substring(0, 150) +
+			"... Book your appointment now!",
+		openGraph: {
+			title: `${centerData.name} Services | Book Online`,
+			images: [centerData.logoUrl],
+		},
+	};
+}
 
 export default async function CenterLandingPage({ params }: CenterPageProps) {
 	const { center } = await params;
 
 	let centerData;
+
 	try {
 		centerData = await getCenterData(center);
 	} catch (error) {
@@ -26,6 +49,24 @@ export default async function CenterLandingPage({ params }: CenterPageProps) {
 
 	const { name, logoUrl, description, services } = centerData;
 
+	const jsonLd = {
+		"@context": "https://schema.org",
+		"@type": "LocalBusiness",
+		name: centerData.name,
+		description: centerData.description,
+		url: `https://victorlms.arionic.vercel.app/${centerData.slug}`,
+		hasOfferCatalog: {
+			"@type": "OfferCatalog",
+			itemListElement: centerData.services.map((service) => ({
+				"@type": "Offer",
+				itemOffered: {
+					"@type": "Service",
+					name: service.name,
+				},
+			})),
+		},
+	};
+
 	return (
 		<main className="container mx-auto p-4 md:p-8 max-w-5xl">
 			<Link href="/">👈 Back to Beauty Arionkoder</Link>
@@ -43,6 +84,10 @@ export default async function CenterLandingPage({ params }: CenterPageProps) {
 			</h2>
 
 			<ServiceList services={services} />
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
 		</main>
 	);
 }

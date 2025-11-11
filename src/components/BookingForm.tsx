@@ -189,7 +189,7 @@ export default function BookingForm({ service, onClose }: BookingFormProps) {
 				<button
 					type="button"
 					onClick={onClose}
-					className="px-4 py-2 text-sm font-medium text-gray-600 border border-gray-300 rounded-md hover:bg-gray-100 transition"
+					className="px-4 py-2 cursor-pointer text-sm font-medium text-gray-600 border border-gray-300 rounded-md hover:bg-gray-100 transition"
 					disabled={isSubmitting}
 				>
 					Cancel
@@ -197,7 +197,7 @@ export default function BookingForm({ service, onClose }: BookingFormProps) {
 				<button
 					type="submit"
 					disabled={isSubmitting}
-					className={`px-4 py-2 text-sm font-medium text-white rounded-md transition ${
+					className={`px-4 py-2 cursor-pointer text-sm font-medium text-white rounded-md transition ${
 						isSubmitting ? "bg-indigo-400" : "bg-indigo-600 hover:bg-indigo-700"
 					}`}
 				>
