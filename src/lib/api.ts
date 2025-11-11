@@ -92,6 +92,17 @@ export async function getCenterData(centerSlug: string): Promise<ICenterData> {
 	});
 }
 
+export async function getAllCenters(): Promise<ICenterInfo[]> {
+	return new Promise((resolve) => {
+		const DIRECTORY_DELAY_MS = 500;
+
+		setTimeout(() => {
+			const centerList = Object.values(MOCKED_CENTER_INFO);
+			resolve(centerList);
+		}, DIRECTORY_DELAY_MS);
+	});
+}
+
 /**
  * @todo: Mocked data and API calls, replace with api integration
  * Submission of a new appointment (booking).

@@ -19,7 +19,7 @@ export default function ServiceCard({ service, onBook }: ServiceCardProps) {
 			</div>
 			<div className="mt-auto">
 				<p className="text-sm text-gray-500 mb-4">
-					Duration: **{duration} minutes**
+					Duration: <b>{duration} minutes</b>
 				</p>
 				<button
 					onClick={() => onBook(service)}

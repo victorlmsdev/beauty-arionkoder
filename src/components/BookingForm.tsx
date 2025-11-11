@@ -87,9 +87,9 @@ export default function BookingForm({ service, onClose }: BookingFormProps) {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className="space-y-4 text-background"
+			className="space-y-4 dark:text-black"
 		>
-			<h4 className="text-xl font-medium text-background">
+			<h4 className="text-xl font-medium">
 				Service: <b>{service.name}</b> (${service.price.toFixed(2)})
 			</h4>
 

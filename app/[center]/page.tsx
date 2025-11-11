@@ -2,6 +2,7 @@ import { getCenterData } from "@/lib/api";
 import { CenterPageProps } from "@/types";
 import CenterHeader from "@/components/CenterHeader";
 import ServiceList from "@/components/ServiceList";
+import Link from "next/link";
 
 export default async function CenterLandingPage({ params }: CenterPageProps) {
 	const { center } = await params;
@@ -27,6 +28,7 @@ export default async function CenterLandingPage({ params }: CenterPageProps) {
 
 	return (
 		<main className="container mx-auto p-4 md:p-8 max-w-5xl">
+			<Link href="/">👈 Back to Beauty Arionkoder</Link>
 			<CenterHeader
 				slug={center}
 				name={name}
@@ -36,7 +38,7 @@ export default async function CenterLandingPage({ params }: CenterPageProps) {
 
 			<hr className="my-10 border-indigo-100" />
 
-			<h2 className="text-3xl font-bold text-gray-800 dark:invert mb-6">
+			<h2 className="text-3xl font-bold text-gray-800  mb-6 dark:invert">
 				Our Services
 			</h2>
 
