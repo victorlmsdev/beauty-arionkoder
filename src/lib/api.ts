@@ -1,4 +1,4 @@
-import { ICenterData, IService, IBookingData, ICenterInfo } from "@/src/types";
+import { ICenterData, IService, IBookingData, ICenterInfo } from "@/types";
 
 const MOCKED_SERVICES_CENTER1: IService[] = [
 	{
