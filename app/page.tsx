@@ -39,7 +39,7 @@ export default async function HomePage() {
 				</p>
 
 				<div className="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-lg opacity-70 cursor-not-allowed">
-					Register Your Center (Coming Soon)
+					Register Your Center
 				</div>
 			</section>
 		</main>
