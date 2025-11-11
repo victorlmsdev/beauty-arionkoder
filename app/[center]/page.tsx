@@ -36,7 +36,9 @@ export default async function CenterLandingPage({ params }: CenterPageProps) {
 
 			<hr className="my-10 border-indigo-100" />
 
-			<h2 className="text-3xl font-bold text-gray-800 mb-6">Our Services</h2>
+			<h2 className="text-3xl font-bold text-gray-800 dark:invert mb-6">
+				Our Services
+			</h2>
 
 			<ServiceList services={services} />
 		</main>

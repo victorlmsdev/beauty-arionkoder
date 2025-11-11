@@ -40,12 +40,6 @@ export default function ServiceList({ services }: ServiceListProps) {
 							service={selectedService}
 							onClose={handleCloseBooking}
 						/>
-						<button
-							onClick={handleCloseBooking}
-							className="mt-4 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300"
-						>
-							Close
-						</button>
 					</div>
 				</div>
 			)}

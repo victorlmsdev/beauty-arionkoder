@@ -4,10 +4,17 @@ import { IService } from "@/types";
 import { submitBooking } from "@/lib/api";
 import { useForm } from "react-hook-form";
 
-import { BookingSchema, BookingFormData } from "@/lib/validation";
+import {
+	BookingSchema,
+	BookingFormData,
+	UserPersistenceData,
+} from "@/lib/validation";
 import { useState } from "react";
 import ConfirmationMessage from "./ConfirmationMessage";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+
+const LOCAL_STORAGE_KEY = "bookingUser";
 
 interface BookingFormProps {
 	service: IService;
@@ -22,6 +29,12 @@ export default function BookingForm({ service, onClose }: BookingFormProps) {
 		data: BookingFormData;
 	} | null>(null);
 
+	const [persistedUser, setPersistedUser] =
+		useLocalStorage<UserPersistenceData>(LOCAL_STORAGE_KEY, {
+			clientName: "",
+			clientEmail: "",
+		});
+
 	const {
 		register,
 		handleSubmit,
@@ -32,8 +45,8 @@ export default function BookingForm({ service, onClose }: BookingFormProps) {
 		defaultValues: {
 			serviceId: service.id,
 			serviceName: service.name,
-			clientName: "",
-			clientEmail: "",
+			clientName: persistedUser.clientName,
+			clientEmail: persistedUser.clientEmail,
 			date: "",
 			time: "",
 		},
@@ -46,6 +59,10 @@ export default function BookingForm({ service, onClose }: BookingFormProps) {
 
 			if (result.success) {
 				setBookingResult({ success: true, id: result.bookingId, data });
+				setPersistedUser({
+					clientName: data.clientName,
+					clientEmail: data.clientEmail,
+				});
 				reset();
 			}
 		} catch (error) {
@@ -68,9 +85,12 @@ export default function BookingForm({ service, onClose }: BookingFormProps) {
 	}
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-			<h4 className="text-xl font-medium text-gray-700">
-				Service: **{service.name}** (${service.price.toFixed(2)})
+		<form
+			onSubmit={handleSubmit(onSubmit)}
+			className="space-y-4 text-background"
+		>
+			<h4 className="text-xl font-medium text-background">
+				Service: <b>{service.name}</b> (${service.price.toFixed(2)})
 			</h4>
 
 			<div>

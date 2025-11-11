@@ -21,3 +21,8 @@ export const BookingSchema = z
 	});
 
 export type BookingFormData = z.infer<typeof BookingSchema>;
+
+export type UserPersistenceData = {
+	clientName: string;
+	clientEmail: string;
+};
