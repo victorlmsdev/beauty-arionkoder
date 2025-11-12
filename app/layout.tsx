@@ -26,13 +26,13 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased `}
-			>
+			<body className={`${geistSans.variable} ${geistMono.variable} `}>
 				<Suspense fallback={null}>
 					<NextTopLoader />
 				</Suspense>
-				{children}
+				<div className="antialiased bg-[url(/background.jpg)] ">
+					<div className="antialiased ">{children}</div>
+				</div>
 			</body>
 		</html>
 	);

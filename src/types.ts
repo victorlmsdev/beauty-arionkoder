@@ -11,6 +11,7 @@ export interface ICenterInfo {
 	name: string;
 	logoUrl: string;
 	description: string;
+	address: string;
 }
 
 export interface IBookingData {

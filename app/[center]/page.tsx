@@ -4,6 +4,7 @@ import CenterHeader from "@/components/CenterHeader";
 import ServiceList from "@/components/ServiceList";
 import Link from "next/link";
 import { Metadata } from "next";
+import { SubTitle } from "@/components/SubTitle";
 
 export async function generateMetadata({
 	params,
@@ -47,7 +48,7 @@ export default async function CenterLandingPage({ params }: CenterPageProps) {
 		);
 	}
 
-	const { name, logoUrl, description, services } = centerData;
+	const { name, logoUrl, description, services, address } = centerData;
 
 	const jsonLd = {
 		"@context": "https://schema.org",
@@ -68,26 +69,34 @@ export default async function CenterLandingPage({ params }: CenterPageProps) {
 	};
 
 	return (
-		<main className="container mx-auto p-4 md:p-8 max-w-5xl">
-			<Link href="/">👈 Back to Beauty Arionkoder</Link>
-			<CenterHeader
-				slug={center}
-				name={name}
-				logoUrl={logoUrl}
-				description={description}
-			/>
+		<>
+			<main className="relative flex flex-1 items-center justify-center p-8 md:p-16 ">
+				<section className=" relative z-20 " id="content-section">
+					<div className="mb-4 backdrop-blur-sm p-2 items-center text-bold md:w-min bg-white hover:scale-105 transition duration-200 rounded-lg shadow-md">
+						<Link href="/" className="w-full  flex text-center md:w-sm">
+							👈 Back to Beauty Arionkoder
+						</Link>
+					</div>
+					<header className="mb-8">
+						<CenterHeader
+							slug={center}
+							name={name}
+							logoUrl={logoUrl}
+							description={description}
+							address={address}
+						/>
+					</header>
+					<div className="">
+						<ServiceList services={services} />
+					</div>
+				</section>
 
-			<hr className="my-10 border-indigo-100" />
-
-			<h2 className="text-3xl font-bold text-gray-800  mb-6 dark:invert">
-				Our Services
-			</h2>
-
-			<ServiceList services={services} />
-			<script
-				type="application/ld+json"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-			/>
-		</main>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				/>
+				<div className="absolute bg-white w-full h-50 bottom-0 left-0 z-0" />
+			</main>
+		</>
 	);
 }
