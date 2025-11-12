@@ -30,7 +30,7 @@ export default function RootLayout({
 				<Suspense fallback={null}>
 					<NextTopLoader />
 				</Suspense>
-				<div className="antialiased bg-[url(/background-pink.jpg)] ">
+				<div className="antialiased bg-[url(/background.jpg)] ">
 					<div className="antialiased ">{children}</div>
 				</div>
 			</body>

@@ -12,7 +12,7 @@ export const CenterLogo = ({ name, logoUrl }: Props) => {
 			width={100}
 			height={100}
 			src={`${logoUrl}`}
-			className="w-20 h-20 rounded-full"
+			className="w-20 h-20 rounded-full shadow-sm"
 		/>
 	);
 };

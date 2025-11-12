@@ -5,13 +5,15 @@ export default function CenterHeader({
 	name,
 	logoUrl,
 	description,
+	address,
 }: ICenterInfo) {
 	return (
-		<header className="flex flex-col md:flex-row items-center p-6 bg-white rounded-lg shadow-md">
+		<header className="flex flex-col md:flex-row items-center bg-white backdrop-blur-sm p-6  rounded-lg shadow-md">
 			<CenterLogo {...{ name, logoUrl }} />
-			<div>
-				<h1 className="text-4xl font-extrabold text-indigo-700">{name}</h1>
-				<p className="text-gray-600 mt-2 italic">{description}</p>
+			<div className="mx-4">
+				<h1 className="text-4xl font-bold text-pink-600  ">{name}</h1>
+				<p className="text-xs  italic">{address}</p>
+				<p className="text-sm mt-2 italic">{description}</p>
 			</div>
 		</header>
 	);

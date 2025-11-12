@@ -198,7 +198,7 @@ export default function BookingForm({ service, onClose }: BookingFormProps) {
 					type="submit"
 					disabled={isSubmitting}
 					className={`px-4 py-2 cursor-pointer text-sm font-medium text-white rounded-md transition ${
-						isSubmitting ? "bg-indigo-400" : "bg-indigo-600 hover:bg-indigo-700"
+						isSubmitting ? "bg-pink-400" : "bg-pink-600 hover:bg-pink-700"
 					}`}
 				>
 					{isSubmitting ? "Booking..." : "Confirm Booking"}
