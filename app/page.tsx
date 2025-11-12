@@ -5,12 +5,12 @@ export default async function HomePage() {
 	const centers = await getAllCenters();
 
 	return (
-		<main className="container mx-auto p-4 md:p-12 max-w-6xl ">
+		<main className="container mx-auto p-4 md:p-12 max-w-6xl font-serif ">
 			<header className="text-center mb-16 ">
-				<h1 className="text-3xl font-bold text-indigo-700 mb-4">
+				<h1 className="text-3xl font-bold  text-accent mb-4">
 					Beauty Arionkoder
 				</h1>
-				<h2 className="text-5xl font-extrabold text-gray-900 mb-4 dark:invert">
+				<h2 className="text-5xl font-extrabold  text-gray-900 mb-4 dark:invert">
 					The Multi-tenant Booking Platform
 				</h2>
 				<p className="text-xl text-gray-600 max-w-3xl mx-auto dark:invert">
@@ -19,7 +19,7 @@ export default async function HomePage() {
 				</p>
 			</header>
 
-			<section className="mb-16">
+			<section className="mb-16 ">
 				<h2 className="text-3xl font-bold text-gray-800 mb-8 border-b-2 border-indigo-100 pb-3 dark:invert">
 					Available Centers ({centers.length})
 				</h2>
